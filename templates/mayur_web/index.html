@@ -1,0 +1,202 @@
+{% extends "mayur_web/base.html" %}
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fluxwings.com</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<body>
+    {% block content %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <div class="carousel-inner">
+            <div class="">
+                <img src="{% static 'CAROUSEL/army.jpeg' %}" height="400px" width="1700px" alt="First">
+                <div class="carousel-caption">
+                    <div class="" style="max-width: 1200px;">
+                        <div class="" style="color:rgb(21, 21, 95);">
+                            <h2 class="offset-md-3">
+                                <div style="font-size:30px; margin-right:70px; height: 50px;"><i class="fa-solid fa-star" style="font-size:40px"></i> Military Veteran</div><br>
+                                <div style="font-size:30px; height: 50px;"><i class="fa-solid fa-star" style="font-size:40px"></i> Motivational Speaker</div><br>
+                                <div style="font-size:30px;  margin-right:70px"><i class="fa-solid fa-star" style="font-size:40px"></i> Transition Coach</div>
+                            </h2>
+                            <br><h1  class="offset-md-3">
+                                <h3 class="offset-md-5"> <b>Connect With Me:</b><a class="btn btn-outline-warning btn-social" href="https://www.linkedin.com/in/mayurambastha/" style="color: black; margin-left:130px; margin-top:10px"><h3><i class="fab fa-linkedin-in"></i></h3></a>&nbsp&nbsp&nbsp
+                                <a class="btn btn-outline-warning btn-social" href="#" style="color: black; margin-top:10px;"><h3><i class="fa-brands fa-facebook"></i></h3></a>&nbsp&nbsp&nbsp
+                                <a class="btn btn-outline-warning btn-social" href="https://www.instagram.com/mayurspeaks77/" style="color: black; margin-top:10px"><h3><i class="fa-brands fa-instagram"></i></h3></a></h1>&nbsp&nbsp&nbsp
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><br>   
+    </meta>
+
+        <!-- about section -->
+        <div class="container-flex">
+            <div class="row">
+                <div class="col-md-4 offset-md-1">
+                    <br><img class="col card zoom1" style="height:550px; border-radius:20px; box-shadow:0 4px 8px 0 rgba(0, 0, 1, 0.9)" src="{% static 'about/about1.jpeg' %}"><br>
+                </div>
+                <div class="container-flex" style="width:800px; background-color:lightblue; border-radius:20px">
+                    <br><div class="col-md-10 offset-md-1" style="border-radius: 30px; background-color:white; box-shadow:10px 10px 10px 10px;">
+                        {% for about in ABOUT %}
+                            <div class="col" style="margin:10px">
+                                <br><div style="font-size:30px; margin-top:10px; font-style:italic"><b>{{ about.name }}</b></div><br>
+                                <div style="font-size:18px; text-align:justify;">
+                                    <p>{{ about.intro }}</p>
+                                    <p>{{ about.pointer1 }}<p> 
+                                    <p>{{ about.pointer2 }} ....</p> 
+                                </div><br>
+                                <button class="btn btn-outline-warning"><a href="{% url 'about_me' %}" style="color:darkblue; font-size:20px"><b>Know More</b></a></button>
+                            </div><br><br>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div><br><br>
+
+        <!-- About section ended -->
+
+        <!-- Quote Started -->
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+            <div class="carousel-inner">
+                <div class="">
+                    <img src="{% static 'CAROUSEL/army.jpeg' %}" height="300px" width="1700px" alt="First">
+                    <div class="carousel-caption">
+                        <br><img class="col card zoom1" style="height:200px; width:600px; border-radius:20px; box-shadow:0 8px 8px 0 rgba(0, 0, 1, 0.9)" src="{% static 'quote/quote3.jpeg' %}"><br>
+                    </div>
+                </div><br>
+            </div>
+        </meta>
+
+        <!-- Quote Ended -->
+
+        <!-- Services Started -->
+
+        <div class="text-center mx-auto mb-4" style="max-width: 600px;">
+            <h1 class="display-5 mb-0">My Services</h1>
+            <hr class="w-25 mx-auto bg-primary">
+        </div>
+
+        <div class="container-flex text-center" style=" background-color:rgb(201, 241, 228); width:100%">
+            <div class="row">
+                <div class="col col-md-2 offset-md-1 text-center" style="margin-right: 70px;">
+                    <a href="/mayurweb/coaching_service/">
+                        <br><div class="zoom1" style="font-size:20px; border:solid; height: 200px; width: 360px; background-color: rgb(22, 22, 79); box-shadow:0 8px 8px 0">
+                            <div class="d-flex align-items-center justify-content-center bg-light text-black rounded-circle mx-auto mb-4" style="width: 90px; height: 90px; margin-top: 10px;">
+                                <h1 style="font-size:45px"><i class="fa-solid fa-person-military-rifle"></i></h1>
+                            </div>
+                            <p style="margin-top:30px; color: white"><b>COACHING FOR MILITARY TRANSITION</b></p>
+                        </div><br>
+                    </a>
+                </div>
+                <div class="col col-md-2 offset-md-1 text-center" style="margin-right: 70px">
+                    <a href="/mayurweb/keynotespeak_service/">
+                        <br><div class="zoom1" style="font-size:20px; border:solid; height: 200px; width: 360px; background-color: rgb(22, 22, 79); box-shadow:0 8px 8px 0">
+                            <div class="d-flex align-items-center justify-content-center bg-light text-black rounded-circle mx-auto mb-4" style="width: 90px; height: 90px; margin-top: 10px;">
+                                <h1 style="font-size:45px"><i class="fa-solid fa-person-rays"></i></h1>
+                            </div>
+                            <p style="margin-top:30px; color: white"><b>KEYNOTE SPEAKER</b></p>
+                        </div><br>
+                    </a>
+                </div>
+                <div class="col col-md-2 offset-md-1 text-center" style="margin-right: 70px">
+                    <a href="/mayurweb/motivate_service/">
+                        <br><div class="zoom1" style="font-size:20px; border:solid; height: 200px; width: 360px; background-color: rgb(22, 22, 79); box-shadow:0 8px 8px 0">
+                            <div class="d-flex align-items-center justify-content-center bg-light text-black rounded-circle mx-auto mb-4" style="width: 90px; height: 90px; margin-top: 10px;">
+                                <h1 style="font-size:45px"><i class="fa-solid fa-users-rectangle"></i></h1>
+                            </div>
+                            <p style="margin-top:30px; color: white"><b>MOTIVATIONAL SPEAKER</b></p>
+                        </div><br>
+                    </a>
+                </div>
+                
+            </div>
+        </div><br><br>
+
+        <!-- Services ended -->
+
+        <!-- Gallery Started -->
+
+        <div class="text-center mx-auto mb-4" style="max-width: 600px;">
+            <h1 class="display-5 mb-0">Gallery</h1>
+            <hr class="w-25 mx-auto bg-primary">
+        </div>
+
+        <!-- The grid: four columns -->
+        <div class="container-flex">
+            <div class="row">
+                <div class="column">
+                    <div class="">
+                        {% for gallery_seminar2 in seminar2photos %}
+                            <img src="{{ gallery_seminar2.image.url }}" alt="seminar2_photos" onclick="myFunction(this);" style="height:450px; width:350px; border:solid; margin-left:40px; border-radius:10px" class="col-mb-6">
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div><br>
+        
+        <div class="btn btn-outline-warning text-center offset-md-5">
+            <a href="{% url 'gallery' %}" style="font-size:30px; color:black;">KNOW MORE</a>
+        </div><br><br>
+
+        <!-- The expanding image container -->
+        <div class="container">
+            <!-- Close the image -->
+            <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+        
+            <!-- Expanded image -->
+            <img id="expandedImg" style="width:80%; height:80%px">
+        
+            <!-- Image text -->
+            <div id="imgtext"></div>
+        </div><br>
+
+        <div class="bg-dark text-centre p-2 text-white border bottom shadow"></div>
+
+        <!-- Gallery Ended -->
+
+    <!--  footer -->
+    <br><div class="container-fluid bg-dark text-white p-3">
+        <div class="row g-5">
+            <div class="col-lg-3 col-md-6 offset-md-2">
+                <br><br><h3 class="text-warning mb-4">Quick Links</h3>
+                <div class="d-flex flex-column justify-content-start">
+                    <a class="text-white mb-2" href="{% url 'index' %}"><i class="bi bi-arrow-right text-primary me-2"></i><h5><b>Home</b></h5></a>
+                    <a class="text-white mb-2" href="{% url 'about_me' %}"><i class="bi bi-arrow-right text-primary me-2"></i><h5><b>About Me</b></h5></a>
+                    <a class="text-white mb-2" href="{% url 'services' %}"><i class="bi bi-arrow-right text-primary me-2"></i><h5><b>Services</b></h5></a>
+                    {% comment %} <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Latest Blog Post</a> {% endcomment %}
+                    <a class="text-white" href="{% url 'gallery' %}"><i class="bi bi-arrow-right text-primary me-2"></i><h5><b>Gallery</b></h5></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <br><br><h3 class="text-warning mb-4">Get In Touch</h3>
+                {% comment %} <p class="mb-2"><i class="bi bi-geo-alt text-primary me-2"></i>123 Street, New York, USA</p> {% endcomment %}
+                <div class="row"><h2 style="font-size:1.2rem">&nbsp&nbsp&nbsp<i class="fa-solid fa fa-envelope"></i>&nbsp director@fluxwings.com</h2></div>
+                <div class="row"><h2 style="font-size:1.2rem">&nbsp&nbsp&nbsp<i class="fa-solid fa fa-phone"></i>&nbsp +91 9867046535</h2></div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <br><br><h3 class="text-warning mb-4">Connect Me</h3>
+                <div class="d-flex">
+                    {% comment %} <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="#"><i class="fab fa-twitter fw-normal"></i></a>{% endcomment %}
+                    <h1><a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="#"><i class="fab fa-facebook-f fw-normal"></i></a></h1>
+                    <h1><a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="https://www.linkedin.com/in/mayurambastha/"><i class="fab fa-linkedin-in fw-normal"></i></a></h1>
+                    <h1><a class="btn btn-lg btn-primary btn-lg-square rounded-circle" href="https://www.instagram.com/mayurspeaks77/"><i class="fab fa-instagram fw-normal"></i></a></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-dark text-white text-center border-top py-4 px-5" style="border-color: rgba(256, 256, 256, .1) !important;">
+        <p class="m-0">&copy; <a class="text-white border-bottom" href="#">Lt Col Mayur Ambastha</a>. All Rights Reserved.</p>
+    </div>
+    <!-- end footer -->
+
+    {% endblock %}
+
+</body>
+</html>

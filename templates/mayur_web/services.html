@@ -1,0 +1,139 @@
+{% extends "mayur_web/base.html" %}
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block content %}
+
+        <br><div class="text-center mx-auto mb-4" style="max-width: 600px;">
+            <h1 class="display-5 mb-0">My Services</h1>
+            <hr class="w-25 mx-auto bg-primary">
+        </div><br>
+
+        <ul class="services-list col-md-8 offset-md-2" style="background-color:rgb(245, 243, 229); border:solid; border-radius:20px; border-width:10px; color:grey">
+            <div class="container-flex">
+                <div class="row">
+                    <div class="col-md-5 offset-md-1">
+                        <br><img class="col card zoom1" style="height:450px; border-radius:20px; box-shadow:0 4px 8px 0 rgba(0, 0, 1, 0.9)" src="{% static 'gallery/seminars/seminar12.jpeg' %}"><br>
+                    </div>
+                    <div class="col-md-5">
+                        <br><img class="col card zoom1" style="height:450px; border-radius:20px; box-shadow:0 4px 8px 0 rgba(0, 0, 1, 0.9)" src="{% static 'about/about2.JPG' %}"><br>
+                    </div>
+                </div>
+            </div><br>
+
+            <div class="bg-dark text-centre p-2 text-white border bottom shadow"></div><br>
+            
+            <div class="container-flex">
+                <div class="row">
+                    <li class="col">
+                        <div class="container-flex service-page" style="margin-left:30px">
+                            <div class="row">
+                                <div class="col" style="margin-left: 10px; margin-top: 30px;">
+                                    <a href="/mayurweb/services/1/#service-1">
+                                        <div class="zoom1" style="font-size:20px; border:solid; height: 230px; width: 280px; background-color: rgb(22, 22, 79); box-shadow:0 8px 8px 0;">
+                                            <div class="d-flex align-items-center justify-content-center bg-light text-black rounded-circle mx-auto mb-4" style="width: 90px; height: 90px; margin-top: 10px;">
+                                                <h1 style="font-size:45px"><i class="fa-solid fa-person-military-rifle"></i></h1>
+                                            </div>
+                                            <p class="text-center" style="margin-top:30px; color: white;"><b>COACHING FOR MILITARY TRANSITION</b></p>
+                                        </div><br>
+                                    </a>
+                                    <button class="btn btn-outline-warning" style="margin-left:50px"><a href="/mayurweb/coaching_service/" style="color:black; font-size:25px"><b>Know More</b></a></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="container-flex service-page" style="margin-left:30px">
+                            <div class="row">
+                                <div class="col" style="margin-left: 10px; margin-top: 30px;">
+                                    <a href="/mayurweb/services/2/#service-2">
+                                        <div class="zoom1" style="font-size:20px; border:solid; height: 230px; width: 280px; background-color: rgb(22, 22, 79); box-shadow:0 8px 8px 0;">
+                                            <div class="d-flex align-items-center justify-content-center bg-light text-black rounded-circle mx-auto mb-4" style="width: 90px; height: 90px; margin-top: 10px;">
+                                                <h1 style="font-size:45px"><i class="fa-solid fa-person-rays"></i></h1>
+                                            </div>
+                                            <p class="text-center" style="margin-top:30px; color: white;"><b>KEYNOTE SPEAKER</b></p>
+                                        </div><br>
+                                    </a>
+                                    <button class="btn btn-outline-warning" style="margin-left:50px"><a href="/mayurweb/keynotespeak_service/" style="color:black; font-size:25px"><b>Know More</b></a></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="container-flex service-page" style="margin-left:30px">
+                            <div class="row">
+                                <div class="col" style="margin-left: 10px; margin-top: 30px;">
+                                    <a href="/mayurweb/services/3/#service-3">
+                                        <div class="zoom1" style="font-size:20px; border:solid; height: 230px; width: 280px; background-color: rgb(22, 22, 79); box-shadow:0 8px 8px 0;">
+                                            <div class="d-flex align-items-center justify-content-center bg-light text-black rounded-circle mx-auto mb-4" style="width: 90px; height: 90px; margin-top: 10px;">
+                                                <h1 style="font-size:45px"><i class="fa-solid fa-users-rectangle"></i></h1>
+                                            </div>
+                                            <p class="text-center" style="margin-top:30px; color: white;"><b>MOTIVATIONAL SPEAKER</b></p>
+                                        </div><br>
+                                    </a>
+                                    <button class="btn btn-outline-warning" style="margin-left:50px"><a href="/mayurweb/motivate_service/" style="color:black; font-size:25px"><b>Know More</b></a></button><br><br><br>
+                                </div>
+                            </div>
+                        </div>
+
+                        {% for service_page in services %}           
+                            {% if selected_service and selected_service.id == service_page.id %}
+                                <div id="service-{{ service_page.id }}" class="service-detail offset-md-4">
+                                    <div class="container-flex" style="margin-left:10px; margin-top:20px">
+                                        <div style="border:solid; height: 360px; width: 350px; background-color: rgb(214, 245, 248); box-shadow:0 8px 8px 0">
+                                            <div class="text-center" style="font-size: 25px; color: black; margin-top:20px"><b><u>{{ selected_service.service_name }}</u></b></div>
+                                            <div style="font-size: 18px; margin-left: 10px; margin:20px; color: black;"><b>{{ selected_service.desc|linebreaksbr }}</b></div>
+                                        </div><br><br>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </li>
+                </div>
+            </div>
+        </ul><br>
+
+    <!--  footer -->
+    <br><div class="container-fluid bg-dark text-white p-4">
+        <div class="row g-5">
+            <div class="col-lg-3 col-md-6 offset-md-2">
+                <br><br><h3 class="text-warning mb-4">Quick Links</h3>
+                <div class="d-flex flex-column justify-content-start">
+                    <a class="text-white mb-2" href="{% url 'index' %}"><i class="bi bi-arrow-right text-primary me-2"></i><h5><b>Home</b></h5></a>
+                    <a class="text-white mb-2" href="{% url 'about_me' %}"><i class="bi bi-arrow-right text-primary me-2"></i><h5><b>About Me</b></h5></a>
+                    <a class="text-white mb-2" href="{% url 'services' %}"><i class="bi bi-arrow-right text-primary me-2"></i><h5><b>Services</b></h5></a>
+                    {% comment %} <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Latest Blog Post</a> {% endcomment %}
+                    <a class="text-white" href="{% url 'gallery' %}"><i class="bi bi-arrow-right text-primary me-2"></i><h5><b>Gallery</b></h5></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <br><br><h3 class="text-warning mb-4">Get In Touch</h3>
+                {% comment %} <p class="mb-2"><i class="bi bi-geo-alt text-primary me-2"></i>123 Street, New York, USA</p> {% endcomment %}
+                <div class="row"><h2 style="font-size:1.2rem">&nbsp&nbsp&nbsp<i class="fa-solid fa fa-envelope"></i>&nbsp director@fluxwings.com</h2></div>
+                <div class="row"><h2 style="font-size:1.2rem">&nbsp&nbsp&nbsp<i class="fa-solid fa fa-phone"></i>&nbsp +91 9867046535</h2></div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <br><br><h3 class="text-warning mb-4">Connect Me</h3>
+                <div class="d-flex">
+                    {% comment %} <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="#"><i class="fab fa-twitter fw-normal"></i></a>{% endcomment %}
+                    <h1><a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="#"><i class="fab fa-facebook-f fw-normal"></i></a></h1>
+                    <h1><a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="https://www.linkedin.com/in/mayurambastha/"><i class="fab fa-linkedin-in fw-normal"></i></a></h1>
+                    <h1><a class="btn btn-lg btn-primary btn-lg-square rounded-circle" href="https://www.instagram.com/mayurspeaks77/"><i class="fab fa-instagram fw-normal"></i></a></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-dark text-white text-center border-top py-4 px-5" style="border-color: rgba(256, 256, 256, .1) !important;">
+        <p class="m-0">&copy; <a class="text-white border-bottom" href="#">Lt Col Mayur Ambastha</a>. All Rights Reserved.</p>
+    </div>
+    <!-- end footer -->
+
+    {% endblock %}
+</body>
+</html>

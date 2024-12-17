@@ -1,0 +1,83 @@
+{% extends "mayur_web/base.html" %}
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fluxwings.com</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<body>
+    {% block content %}
+
+    <br><div class="text-center mx-auto mb-4" style="max-width: 600px;">
+        <h1 class="mb-0" style="font-size: 30px;">Coaching for Military Transition</h1>
+        <hr class="w-25 mx-auto bg-primary">
+    </div>
+
+        <div class="container-flex" style="background-color: black; border:solid; border-radius:20px; border-width:10px; color:grey">
+            <div class="row">
+                {% for military_trans in MILITARY_TRANS %}
+                <div class="col-md-8 offset-md-2">
+                    <div style="border:solid; margin:10px; border-radius:20px;" class="btn-outline-warning">
+                        <br><br><div class="offset-md-1" style="font-size: 30px; color:red">
+                            <i class="fa-solid fa-star"></i>&nbsp <u><b>{{ military_trans.heading }}</b></u>
+                        </div><br>
+                        <img src="{{ military_trans.img.url }}" class="card offset-md-4" height="450px" width="350px" style="border-radius:5px; border:solid; background-repeat: no-repeat ;">
+                        <div class="row">
+                            <div class="offset-md-2">
+                                <div class="col-md-10" style="font-size: 25px; margin:10px">
+                                    <div style="border:solid; margin:5px; border-radius:10px; background-color:lightgrey; color:darkblue">
+                                        <div style="margin:10px;"><b>{{ military_trans.sub_heading|linebreaks }}</b></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-9" style="font-size: 25px;">
+                                    <div class="offset-md-2"><b>{{ military_trans.desc|linebreaks }}</b></div><br><br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div><br>
+
+        <!--  footer -->
+        <br><div class="container-fluid bg-dark text-white p-4">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6 offset-md-2">
+                    <br><br><h3 class="text-warning mb-4">Quick Links</h3>
+                    <div class="d-flex flex-column justify-content-start">
+                        <a class="text-white mb-2" href="{% url 'index' %}"><i class="bi bi-arrow-right text-primary me-2"></i><h5><b>Home</b></h5></a>
+                        <a class="text-white mb-2" href="{% url 'about_me' %}"><i class="bi bi-arrow-right text-primary me-2"></i><h5><b>About Me</b></h5></a>
+                        <a class="text-white mb-2" href="{% url 'services' %}"><i class="bi bi-arrow-right text-primary me-2"></i><h5><b>Services</b></h5></a>
+                        {% comment %} <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Latest Blog Post</a> {% endcomment %}
+                        <a class="text-white" href="{% url 'gallery' %}"><i class="bi bi-arrow-right text-primary me-2"></i><h5><b>Gallery</b></h5></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <br><br><h3 class="text-warning mb-4">Get In Touch</h3>
+                    {% comment %} <p class="mb-2"><i class="bi bi-geo-alt text-primary me-2"></i>123 Street, New York, USA</p> {% endcomment %}
+                    <div class="row"><h2 style="font-size:1.2rem">&nbsp&nbsp&nbsp<i class="fa-solid fa fa-envelope"></i>&nbsp director@fluxwings.com</h2></div>
+                    <div class="row"><h2 style="font-size:1.2rem">&nbsp&nbsp&nbsp<i class="fa-solid fa fa-phone"></i>&nbsp +91 9867046535</h2></div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <br><br><h3 class="text-warning mb-4">Connect Me</h3>
+                    <div class="d-flex">
+                        {% comment %} <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="#"><i class="fab fa-twitter fw-normal"></i></a>{% endcomment %}
+                        <h1><a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="#"><i class="fab fa-facebook-f fw-normal"></i></a></h1>
+                        <h1><a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="https://www.linkedin.com/in/mayurambastha/"><i class="fab fa-linkedin-in fw-normal"></i></a></h1>
+                        <h1><a class="btn btn-lg btn-primary btn-lg-square rounded-circle" href="https://www.instagram.com/mayurspeaks77/"><i class="fab fa-instagram fw-normal"></i></a></h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid bg-dark text-white text-center border-top py-4 px-5" style="border-color: rgba(256, 256, 256, .1) !important;">
+            <p class="m-0">&copy; <a class="text-white border-bottom" href="#">Lt Col Mayur Ambastha</a>. All Rights Reserved.</p>
+        </div>
+        <!-- end footer -->
+    {% endblock %}
+</body>
+</html>

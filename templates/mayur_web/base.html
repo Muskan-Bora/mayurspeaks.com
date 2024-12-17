@@ -1,0 +1,209 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+    <style>
+        .zoom1 {
+            
+            
+            transition: transform .2s; /* Animation */
+            /* width: 240px;
+            height: 119px; */
+            margin: 0 auto;
+        }
+        
+        .zoom1:hover {
+            transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+        }
+
+        /* Split the screen in half */
+        .split {
+            height: 100%;
+            width: 100%;
+            /* position: 1;
+            z-index: 5;
+            top: 0;
+            overflow-x: hidden;
+            padding-top: 10px;
+            margin-top:100px */
+        }
+
+        /* Control the left side */
+        .left {
+            left: 1;
+            background-color: #111;
+        }
+
+        /* Control the right side */
+        .right {
+            margin-left: 500px;
+            right: 1;
+            background-color: red;
+        }
+
+        div.scroll-container {
+            background-color: #333;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding: 10px;
+        }
+          
+        div.scroll-container img {
+            display: inline-block;
+            padding: 10px;
+            border-radius: 20px;
+        }
+
+        /* The grid: three equal columns that floats next to each other */
+        .column {
+            text-align: center;
+        /* float: left;
+        width: 0%; */
+        }
+
+        /* Style the images inside the grid */
+        .column img {
+        opacity: 0.8;
+        cursor: pointer;
+        }
+
+        .column img:hover {
+        opacity: 1;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+        content: "";
+        display: table;
+        clear: both;
+        }
+
+        /* The expanding image container (positioning is needed to position the close button and the text) */
+        .container {
+        position: relative;
+        display: none;
+        }
+
+        /* Expanding image text */
+        #imgtext {
+        position: absolute;
+        bottom: 15px;
+        left: 15px;
+        color: white;
+        font-size: 20px;
+        }
+
+        /* Closable button inside the image */
+        .closebtn {
+        position: absolute;
+        margin-top: 1px;
+        right: 15px;
+        color: red;
+        font-size: 60px;
+        cursor: pointer;
+        }
+
+        .services-list {
+            list-style-type: none; /* This removes the bullet points */
+            padding: 0;
+        }
+
+        .services-list li {
+            display:contents;
+            vertical-align: top;
+           
+        }
+
+    </style>
+</head>
+<body>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- header start -->
+
+        <header>
+            <!-- header inner -->
+
+            <div class="header">
+                <div class="header_midil">
+                    <div class="offset-md-1">
+                        <br><div class="row">
+                            <div class="col d_none">
+                                <ul class="conta_icon">
+                                   <br><br><div style="font-size: 20px; margin-left: 15px;"><i class="fa fa-phone" aria-hidden="true"></i> <b>Call : +91 9867046535</b></div>
+                                </ul>
+                            </div>
+                            <div class="col zoom1">
+                                <a class="logo" href="{% url 'index' %}"><b><img src="{% static 'logo/mayurname6.jpeg' %}" width="380px" height="70px" style="margin-right: 20px;" alt="#"></b></a>
+                                <a class="logo offset-md-1" href="{% url 'index' %}"><img src="{% static 'logo/mayurname7.jpeg' %}" width="300px" alt="#" ></a>
+                            </div>
+                            <div class="col d_none">
+                                <ul class="conta_icon">
+                                    <br><br><div style="font-size: 20px; margin-left: 15px;"><i class="fa fa-envelope" aria-hidden="true"></i> <b>director@fluxwings.com</b></div>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br><nav class="navbar navbar-light" style="background-color:rgb(179, 178, 178)">
+                <div class="nav navbar navbar-dark offset-md-4"class="btn btn-primary text-white" style="border-radius:10px">
+                    <a href="{% url 'index' %}"class="nav-item nav-link btn-outline-light" style="font-size:20px">
+                        <b>HOME</b>
+                    </a>
+
+                    <a href="{% url 'about_me' %}" class="nav-item nav-link btn-outline-light" style="font-size:20px">
+                        <b>ABOUT ME</b>
+                    </a>
+
+                    <a href="{% url 'services' %}" class="nav-item nav-link btn-outline-light" style="font-size:20px">
+                        <b>SERVICES</b>
+                    </a>
+
+                    <a href="{% url 'gallery' %}" class="nav-item nav-link btn-outline-light" style="font-size:20px">
+                        <b>GALLERY</b>
+                    </a>
+                </div>
+            </nav>
+            <!-- header inner-end -->
+        </header>
+
+        <!-- header end  -->
+    </meta> 
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    {% comment %} <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> {% endcomment %}
+    <script>
+        function myFunction(imgs) {
+            // Get the expanded image
+            var expandImg = document.getElementById("expandedImg");
+            // Get the image text
+            var imgText = document.getElementById("imgtext");
+            // Use the same src in the expanded image as the image being clicked on from the grid
+            expandImg.src = imgs.src;
+            // Use the value of the alt attribute of the clickable image as text inside the expanded image
+            imgText.innerHTML = imgs.alt;
+            // Show the container element (hidden with CSS)
+            expandImg.parentElement.style.display = "block";
+        }
+    </script>
+
+    <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+    <div class="elfsight-app-c6a8ba08-062a-43cd-8348-59c864360e54" style="margin-right:500px" class="text-center" data-elfsight-app-lazy></div>
+
+    <div class="container.flex-column">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

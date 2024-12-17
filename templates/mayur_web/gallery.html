@@ -1,0 +1,151 @@
+{% extends "mayur_web/base.html" %}
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block content %}
+
+        <br><div class="text-center mx-auto mb-4" style="max-width: 600px;">
+            <h1 class="display-5 mb-0">Gallery</h1>
+            <hr class="w-25 mx-auto bg-primary">
+        </div>
+
+       <div class="bg-dark text-centre p-2 text-white border bottom shadow"></div><br>
+
+        <div class="scroll-container">
+            {% for gallery_seminar in seminarphotos %}
+                <img src="{{ gallery_seminar.image.url }}" alt="seminar_photos" style="height:500px; width:600px">
+            {% endfor %} 
+        </div><br><br>
+
+        <div class="bg-dark text-centre p-2 text-white border bottom shadow"></div><br><br>
+
+        <div class="scroll-container">
+            {% for gallery_achievement in achievements %}
+                <img src="{{ gallery_achievement.image.url }}" alt="achievements" style="height:550px; width:700px">
+            {% endfor %} 
+        </div><br><br>
+
+        <div class="bg-dark text-centre p-2 text-white border bottom shadow"></div><br><br>
+
+        <!-- The grid: four columns -->
+        <div class="container-flex">
+            <div class="row">
+                <div class="column">
+                    <div class="">
+                        {% for gallery_seminar2 in seminar2photos %}
+                            <img src="{{ gallery_seminar2.image.url }}" alt="" onclick="myFunction(this);" style="height:450px; width:350px; border:solid; margin-left:40px; border-radius:10px" class="col-mb-6">
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div><br>
+
+        <!-- The expanding image container -->
+        <div class="container">
+            <!-- Close the image -->
+            <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+        
+            <!-- Expanded image -->
+            <img id="expandedImg" style="width:80%; height:80%px">
+        
+            <!-- Image text -->
+            <div id="imgtext"></div>
+        </div><br>
+
+        <div class="bg-dark text-centre p-2 text-white border bottom shadow"></div><br>
+
+        <div class="scroll-container">
+            {% for gallery_army in armyphotos %}
+                <img src="{{ gallery_army.image.url }}" alt="army_photos" style="height:450px; width:500px">
+            {% endfor %} 
+        </div><br><br>
+
+        <div class="bg-dark text-centre p-2 text-white border bottom shadow"></div><br>
+
+        <div class="text-center mx-auto mb-4" style="max-width: 600px;">
+            <h1 class="display-5 mb-0">My Video Gallery</h1><br>
+            <h1 class="display-5 mb-0">"Watch Now"</h1>
+            <hr class="w-25 mx-auto bg-primary">
+        </div><br>
+    
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3">
+                    <div>
+                        <a href="https://youtu.be/Q6kxM5LUfgI?si=8MquHtSHkcEDb5PA">
+                            <img src={% static 'gallery/videos/part1.jpeg' %} style="height:260px; width:350px; border:solid; border-radius:10px; border-width:10px">
+                        </a>
+                    </div><br>
+                </div>
+                <div class="col-md-3">
+                    <div>
+                        <a href="https://youtu.be/nJPfuzlZRkY?si=Pq1t8yxRW14Qv7wA">
+                            <img src={% static 'gallery/videos/part2.jpeg' %} style="height:260px; width:350px; border:solid; border-radius:10px; border-width:10px">
+                        </a>
+                    </div><br>
+                </div>
+                <div class="col-md-3">
+                    <div>
+                        <a href="https://youtu.be/6GLPSzZk5Cw?si=WyRhN3Qv_ypiUgbw">
+                            <img src={% static 'gallery/videos/part3.jpeg' %} style="height:260px; width:350px; border:solid; border-radius:10px; border-width:10px">
+                        </a>
+                    </div><br>
+                </div>
+                <div class="col-md-3">
+                    <div>
+                        <a href="https://youtu.be/w6TDDRfOZgc?si=sET-VhbvHEGZVu_-">
+                            <img src={% static 'gallery/videos/part4.jpeg' %} style="height:260px; width:350px; border:solid; border-radius:10px; border-width:10px">
+                        </a>
+                    </div><br>
+                </div>
+            </div>
+        </div><br>
+
+        <div class="bg-dark text-centre p-2 text-white border bottom shadow"></div><br>
+
+        <!--  footer -->
+        <br><div class="container-fluid bg-dark text-white p-4">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6 offset-md-2">
+                    <br><br><h3 class="text-warning mb-4">Quick Links</h3>
+                    <div class="d-flex flex-column justify-content-start">
+                        <a class="text-white mb-2" href="{% url 'index' %}"><i class="bi bi-arrow-right text-primary me-2"></i><h5><b>Home</b></h5></a>
+                        <a class="text-white mb-2" href="{% url 'about_me' %}"><i class="bi bi-arrow-right text-primary me-2"></i><h5><b>About Me</b></h5></a>
+                        <a class="text-white mb-2" href="{% url 'services' %}"><i class="bi bi-arrow-right text-primary me-2"></i><h5><b>Services</b></h5></a>
+                        {% comment %} <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Latest Blog Post</a> {% endcomment %}
+                        <a class="text-white" href="{% url 'gallery' %}"><i class="bi bi-arrow-right text-primary me-2"></i><h5><b>Gallery</b></h5></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <br><br><h3 class="text-warning mb-4">Get In Touch</h3>
+                    {% comment %} <p class="mb-2"><i class="bi bi-geo-alt text-primary me-2"></i>123 Street, New York, USA</p> {% endcomment %}
+                    <div class="row"><h2 style="font-size:1.2rem">&nbsp&nbsp&nbsp<i class="fa-solid fa fa-envelope"></i>&nbsp director@fluxwings.com</h2></div>
+                    <div class="row"><h2 style="font-size:1.2rem">&nbsp&nbsp&nbsp<i class="fa-solid fa fa-phone"></i>&nbsp +91 9867046535</h2></div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <br><br><h3 class="text-warning mb-4">Connect Me</h3>
+                    <div class="d-flex">
+                        {% comment %} <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="#"><i class="fab fa-twitter fw-normal"></i></a>{% endcomment %}
+                        <h1><a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="#"><i class="fab fa-facebook-f fw-normal"></i></a></h1>
+                        <h1><a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="https://www.linkedin.com/in/mayurambastha/"><i class="fab fa-linkedin-in fw-normal"></i></a></h1>
+                        <h1><a class="btn btn-lg btn-primary btn-lg-square rounded-circle" href="https://www.instagram.com/mayurspeaks77/"><i class="fab fa-instagram fw-normal"></i></a></h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid bg-dark text-white text-center border-top py-4 px-5" style="border-color: rgba(256, 256, 256, .1) !important;">
+            <p class="m-0">&copy; <a class="text-white border-bottom" href="#">Lt Col Mayur Ambastha</a>. All Rights Reserved.</p>
+        </div>
+        <!-- end footer -->
+
+    {% endblock %}
+</body>
+</html>
